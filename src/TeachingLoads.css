@@ -1,0 +1,721 @@
+.teaching-loads {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f3f4f6;
+  padding: 32px;
+  color: #1f2933;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.teaching-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.teaching-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.upload-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.upload {
+  background: #0c7c59;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.upload input {
+  display: none;
+}
+
+.upload-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.placeholder {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  color: #7b8794;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  margin-bottom: 24px;
+  scrollbar-color: #94a3b8 #e2e8f0;
+  scrollbar-width: thin;
+  background: #fff;
+}
+
+.table-wrapper table {
+  margin-bottom: 0;
+}
+
+.table-wrapper table:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.teaching-table,
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+/* Ensure colgroup widths are respected */
+.teaching-table colgroup col:first-child {
+  width: 50px !important;
+}
+
+.teaching-table colgroup col:nth-child(2) {
+  width: 180px !important;
+}
+
+.teaching-table colgroup col:nth-child(n+3) {
+  width: 150px !important;
+}
+
+.teaching-table th,
+.teaching-table td,
+.summary-table th,
+.summary-table td {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: top;
+  padding: 0;
+}
+
+.teaching-table thead {
+  background: #000;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.teaching-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid #333;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.teaching-table thead th.day-time-header {
+  width: 230px !important;
+  min-width: 230px !important;
+}
+
+.day-time-header {
+  background: #000;
+  border: 1px solid #333;
+  padding: 12px 8px;
+  box-sizing: border-box;
+}
+
+.day-time-column {
+  width: 230px;
+  min-width: 230px;
+}
+
+.instructor-header,
+.summary-instructor-header {
+  white-space: nowrap;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 12px 8px;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  box-sizing: border-box;
+}
+
+.teaching-table tbody td.teaching-cell,
+.summary-table tbody td.summary-value {
+  padding: 8px;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  box-sizing: border-box;
+}
+
+.teaching-table tbody td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.day-label {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  vertical-align: middle;
+  width: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  padding: 12px 8px;
+  letter-spacing: 0.1em;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  border-right: 2px solid #333;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.time-slot-cell {
+  background: #1faa59;
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  width: 180px !important;
+  min-width: 180px !important;
+  max-width: 180px !important;
+  position: sticky;
+  left: 50px;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+.summary-label {
+  width: 230px;
+  min-width: 230px;
+}
+
+.time-slot-cell.lunch-time {
+  color: #c53030;
+  font-weight: 700;
+}
+
+.teaching-cell {
+  background: #fff;
+  height: 40px;
+  min-height: 40px;
+  border: 1px solid #000;
+  padding: 0;
+  position: relative;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  box-sizing: border-box;
+}
+
+.teaching-cell.has-schedule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.teaching-cell.has-schedule:hover {
+  opacity: 0.85;
+}
+
+.teaching-cell.has-schedule:focus {
+  outline: 2px solid #0c7c59;
+  outline-offset: -2px;
+}
+
+.room-label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  margin-top: 0;
+  border-top: 2px solid #000;
+}
+
+.summary-table thead {
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+
+.summary-table thead th {
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid #333;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+  width: auto;
+}
+
+.summary-header {
+  text-align: left;
+  width: 230px !important;
+  min-width: 230px !important;
+  max-width: 230px !important;
+  box-sizing: border-box;
+}
+
+.summary-table tbody td {
+  padding: 10px 8px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.summary-label {
+ 
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 8px;
+  box-sizing: border-box;
+  width: 230px;
+  min-width: 230px;
+}
+
+.summary-value {
+ 
+  color: #000;
+  font-weight: 600;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+
+/* Ensure summary table instructor columns align with teaching table */
+.summary-table colgroup col:nth-child(n+3) {
+  width: 150px !important;
+}
+
+.summary-table thead th.summary-instructor-header {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+
+.summary-total-row .summary-total-label {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+}
+
+.summary-total-row .summary-total-value {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  color: #7b8794;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  color: #4a5568;
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.view-toggle {
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-toggle button {
+  padding: 8px 16px;
+  border: 1px solid #1faa59;
+  background: white;
+  color: #1faa59;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-toggle button.active,
+.view-toggle button:hover:not(:disabled) {
+  background: #1faa59;
+  color: white;
+}
+
+.view-toggle button:disabled,
+.view-toggle button.disabled-state {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.view-toggle button:not(:disabled):not(.disabled-state) {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.matrix-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  margin-bottom: 24px;
+  scrollbar-color: #94a3b8 #e2e8f0;
+  scrollbar-width: thin;
+  background: #fff;
+}
+
+.teaching-matrix {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.teaching-matrix th {
+  background: #1a1a1a;
+  color: white;
+  padding: 12px 8px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.instructor-header {
+  min-width: 140px;
+  white-space: nowrap;
+}
+
+.instructor-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.corner,
+.corner-cell {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #1a1a1a;
+  z-index: 11;
+}
+
+.day-label {
+  background: #2c3e50;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  position: sticky;
+  left: 0;
+  z-index: 9;
+  width: 90px;
+}
+
+.time-label {
+  background: #f8f9fa;
+  text-align: right;
+  padding: 8px 12px;
+  position: sticky;
+  left: 90px;
+  z-index: 8;
+  border-right: 2px solid #ddd;
+}
+
+.slot,
+.schedule-cell {
+  height: 40px;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.slot.occupied,
+.schedule-cell.occupied {
+  background: #1faa59;
+}
+
+.filled,
+.filled-block {
+  background: #1faa59;
+  height: 100%;
+  width: 100%;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #1f2933;
+}
+
+.modal-slot {
+  color: #7b8794;
+  font-size: 14px;
+  margin: 0 0 16px 0;
+}
+
+.modal-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-card li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-card li:last-child {
+  border-bottom: none;
+}
+
+.detail-title {
+  font-weight: 600;
+  color: #1f2933;
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.detail-meta {
+  color: #7b8794;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.room-item {
+    margin: 2px 0;
+    font-weight: bold;
+  }
+
+  .teaching-cell.has-schedule {
+    background-color: #1faa59 !important;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .teaching-cell.has-conflict {
+    background-color: #d32f2f !important;  /* Red for real conflicts */
+    animation: pulse 2s infinite;
+  }
+  
+  .room-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 4px;
+    position: relative;
+  }
+  
+  .room-item {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin: 2px 0;
+    font-size: 12px;
+    min-width: 40px;
+    text-align: center;
+    backdrop-filter: blur(1px);
+  }
+  
+  .conflict-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: #ff1744;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 10;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+
+  .teaching-cell.has-schedule {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .room-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 4px;
+  }
+  
+  
+  
+  .conflict-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: #ff1744;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    z-index: 10;
+  }
+  
+  .teaching-cell.has-conflict {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  .room-item {
+    background-color: rgb(31 170 89);   /* Slight white overlay */
+    color: rgb(0, 0, 0) !important;                      /* This makes the text bright */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin: 3px 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 42px;
+    backdrop-filter: blur(1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    
+    /* Optional: make it pop even more with a subtle green glow */
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  }
+
+ 
+
+  .room-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 6px;
+  }
+  
