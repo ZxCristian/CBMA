@@ -245,7 +245,7 @@ function App() {
     const loadFromGoogleSheets = async () => {
       try {
         const res = await fetch(
-          "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=37247211&single=true&output=csv"
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=2072640762&single=true&output=csv"
         );
         if (!res.ok) throw new Error("Network error");
         const csv = await res.text();
@@ -544,7 +544,7 @@ if (currentView === "teaching") {
     try {
       setLastUpdated(null);
       const res = await fetch(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=37247211&single=true&output=csv"
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=2072640762&single=true&output=csv"
       );
       if (!res.ok) throw new Error("Failed");
       const csv = await res.text();
@@ -630,7 +630,7 @@ if (currentView === "teaching") {
     try {
       setLastUpdated(null);
       const res = await fetch(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=37247211&single=true&output=csv"
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGV6JtLweFlL98nS4enQb8sVY9HYFQiUDck20NZGqv6d35sPbQxhuA10nfGz_Rdkp2Y6p2u_5rS-YB/pub?gid=2072640762&single=true&output=csv"
       );
       if (!res.ok) throw new Error("Failed");
       const csv = await res.text();
